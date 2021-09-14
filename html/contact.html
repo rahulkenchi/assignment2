@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  
+    <head>          
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        
+        <script>
+         
+        function validate() 
+        {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;            
+            var details = document.getElementById("details").value;
+            var expname = /^[a-zA-Z\s]{2,100}$/;
+            var expemail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;        
+            var expdetails = /^[a-zA-Z0-9\s]{10,200}$/;
+
+            if (!(expname.test(name))) {
+                document.getElementById("name").focus();
+                   alert("Invalid name",'danger','n_para');              
+            }
+
+           else   if (!(expemail.test(email))) {
+                document.getElementById("email").focus();
+                alert("Invalid email",'danger','e_para')
+            }
+            else  if (!(expdetails.test(details))) {
+                document.getElementById("details").focus();
+                alert("Invalid text format",'danger','p_para')
+            }
+            else {               
+              alert("Form Submitted Successfully",'success' ,'head2' )
+            }
+        }
+
+        function alert(message,type ,a) {
+            
+              var wrapper = document.createElement('div')
+              wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+              document.getElementById(a).append(wrapper);
+                  
+            }
+
+
+        </script>
+        <style>
+        form{
+          margin:30px;
+        }
+        </style>
+       
+      </head>
+  
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">BPK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">SHOP</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">PICNIC</a>
+                </li>              
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SHOP</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">PAGE</a>
+                  </li>              
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">PROMOTION</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">BLOG</a>
+                  </li>                
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">CONTACT US</a>
+                  </li>                
+              </ul>
+            </div>
+          </nav>
+        
+          <main>
+        <div>
+            <form action="#" >
+                <h2 id="head2">Enter your info with your subject of contacting us.</h2>
+                <div>
+                    <label>Name</label>
+                    <input  class="form-control" placeholder="name" id="name">
+                    <p id="n_para"></p>
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input  class="form-control" placeholder="abc@email.com" id="email">
+                    <p id="e_para"></p>
+                </div>        
+               
+                <div>
+                    <label>Enter your subject in detail , in the textbox below.</label><br>
+                    <textarea id="details" row="10" cols="100"></textarea>
+                    <p id="p_para"></p>
+                </div>
+                <br>
+                <div>
+                    <button onclick="validate()" id="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>        
+            </form>
+        </div> 
+          </main>
+        </body>
+</html>
